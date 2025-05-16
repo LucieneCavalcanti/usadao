@@ -29,6 +29,6 @@ public class PessoaEntity {
     private String email;
     @Column(length=20, nullable = false)
     private String senha;
-    @Column(columnDefinition = "integer default 0")
-    private int status; //0 -> desativado, 1 - ativo
+    @Column(columnDefinition = "varchar default 'AGUARDANDO_ATIVAÇÃO'")
+    private Status status; //0 -> desativado, 1 - ativo //trocado por enum
 }

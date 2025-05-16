@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -26,12 +27,17 @@ public class PublicacaoEntity {
     private int id;
     @Column(length = 1500, nullable = false)
     private String descricao;
+    @Column(nullable = false)
     private String titulo;
+    @Column(columnDefinition = "timestamp default current_timestamp")
     private Timestamp dataHora;
     private float valor;
+    @JoinColumn(name = "idcliente", referencedColumnName = "idpessoa")
     @OneToOne
     private ClienteEntity cliente;
+    @JoinColumn(name = "idcategoria", referencedColumnName = "id")
     @OneToOne
     private CategoriaEntity categoria;
-    private int status;
+    @Column(columnDefinition = "varchar default 'AGUARDANDO_ATIVAÇÃO'")
+    private Status status;
 }
