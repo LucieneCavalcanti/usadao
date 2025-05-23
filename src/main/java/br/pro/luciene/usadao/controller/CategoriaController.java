@@ -21,8 +21,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor //colocando isso não precisa colocar @Autowired no atributo
 @RequestMapping(value = "/categoria")
 public class CategoriaController {
-    @SuppressWarnings("unused")
     private final CategoriaService categoriaService;
+
     @GetMapping
     public ResponseEntity<List<CategoriaEntity>> listarTodos() {
         List<CategoriaEntity> lista = categoriaService.listarTodos();
@@ -30,7 +30,8 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<CategoriaEntity> incluir(@RequestBody CategoriaEntity categoria) {
+    public ResponseEntity<CategoriaEntity> incluir(@RequestBody 
+    CategoriaEntity categoria) {
         CategoriaEntity novo = categoriaService.incluir(categoria);
         if (novo != null) {
             return new ResponseEntity<>(novo, HttpStatus.CREATED);

@@ -21,7 +21,8 @@ public class CategoriaService {
     }
     public CategoriaEntity editar(int id, CategoriaEntity categoria) {
         // Verifique se a categoria existe
-        Optional<CategoriaEntity> categoriaExistente = categoriaRepository.findById(id);
+        Optional<CategoriaEntity> categoriaExistente = 
+        categoriaRepository.findById(id);
         
         if (categoriaExistente.isPresent()) {
             // Atualiza a categoria
