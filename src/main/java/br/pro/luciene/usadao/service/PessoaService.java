@@ -15,11 +15,11 @@ public class PessoaService {
     @Autowired
     private final PessoaRepository pessoaRepository;
 
-    public PessoaEntity incluir(PessoaEntity usuario) {
-        return pessoaRepository.save(usuario);
+    public PessoaEntity incluir(PessoaEntity pessoa) {
+        return pessoaRepository.save(pessoa);
     }
-    public PessoaEntity editar(int id, PessoaEntity usuario) {
-        return pessoaRepository.save(usuario);
+    public PessoaEntity editar(int id, PessoaEntity pessoa) {
+        return pessoaRepository.save(pessoa);
     }
     public List<PessoaEntity> listarTodos() {
         return pessoaRepository.findAll();
